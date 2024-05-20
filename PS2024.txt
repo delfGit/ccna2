@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 @botot
-
+Install-WindowsFeature  -name DNS  -includeManagementTools
 Install-WindowsFeature  -name Web-Server  -includeManagementTools
 
 
