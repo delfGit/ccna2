@@ -157,7 +157,6 @@ config t
 	 ip add 10.22.100.8 255.255.255.0 
 	 end
 
-
 !!!CUCM ANALOG PHONES CONFIG
 configure terminal
 dial-peer voice 1 pots
@@ -201,12 +200,12 @@ ephone-dn 7
 ephone-dn 8
   number 2288	
 Ephone 1
-  Mac-address 22222222.22222222.22222222
+  Mac-address ccd8.c1fb.1103
   type 8945
   button 1:1 2:3 3:2 4:4
   restart
 Ephone 2
-  Mac-address 22222222.22222222.22222222
+  Mac-address ccd8.c1fb.14c9
   type 8945
   button 1:5 2:6 3:7 4:8
   restart  
@@ -234,10 +233,10 @@ ipv4 0.0.0.0 0.0.0.0
 exit
 
 configure terminal
-! dial-peer voice 11 Voip
-! destination-pattern 11..
-! session target ipv4:10.11.100.8
-! codec g711ULAW
+ dial-peer voice 11 Voip
+ destination-pattern 11..
+ session target ipv4:10.11.100.8
+ codec g711ULAW
 dial-peer voice 12 Voip
  destination-pattern 12..
  session target ipv4:10.12.100.8
@@ -246,10 +245,10 @@ dial-peer voice 21 Voip
  destination-pattern 21..
  session target ipv4:10.21.100.8
  codec g711ULAW
-dial-peer voice 22 Voip
- destination-pattern 22..
- session target ipv4:10.22.100.8
- codec g711ULAW
+!dial-peer voice 22 Voip
+! destination-pattern 22..
+! session target ipv4:10.22.100.8
+! codec g711ULAW
 dial-peer voice 31 Voip
  destination-pattern 31..
  session target ipv4:10.31.100.8
@@ -302,7 +301,7 @@ dial-peer voice 82 Voip
 @@@@@@
 !@@@EDGE ROUTE CONFIG
 config t
-   hostname EDGE12
+   hostname EDGE22
    enable secret pass
    service password-encryption
    no logging console
@@ -317,25 +316,25 @@ config t
       exec-timeout 0 0
    Int Gi 0/0/0
      description INSIDE
-     ip add 10.12.12.1 255.255.255.0
+     ip add 10.22.22.1 255.255.255.0
 	 no shutdown
    Int Gi 0/0/1
      description OUTSIDE
-	 ip add 200.0.0.12 255.255.255.0
+	 ip add 200.0.0.22 255.255.255.0
 	 no shutdown
    Int Loopback 0
      description VIRTUALIP
-	 ip add 12.0.0.1 255.255.255.255
+	 ip add 22.0.0.1 255.255.255.255
  end
 
  
  !!! EDGE route NOT dikit to ClassMate:
   conf t
  ip routing 
-!ip route 10.11.0.0 255.255.0.0 200.0.0.11
+ ip route 10.11.0.0 255.255.0.0 200.0.0.11
  ip route 10.12.0.0 255.255.0.0 200.0.0.12
  ip route 10.21.0.0 255.255.0.0 200.0.0.21
- ip route 10.22.0.0 255.255.0.0 200.0.0.22
+!ip route 10.22.0.0 255.255.0.0 200.0.0.22
  ip route 10.31.0.0 255.255.0.0 200.0.0.31
  ip route 10.32.0.0 255.255.0.0 200.0.0.32
  ip route 10.41.0.0 255.255.0.0 200.0.0.41
@@ -367,8 +366,8 @@ end
 
 !How to Static Route windows Server:
 cmd
-route  add   10.0.0.0   mask   255.0.0.0    10.m.1.4
-route  add  200.0.0.0   mask  255.255.255.0   10.m.1.4
+route  add   10.0.0.0   mask   255.0.0.0    10.22.1.4
+route  add  200.0.0.0   mask  255.255.255.0   10.22.1.4
 
 ********************************************
 
