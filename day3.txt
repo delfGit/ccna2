@@ -35,8 +35,8 @@ int e0/0
  switchport access vlan 10
 A1: creating default route and secondary default route
 config t
-ip route 0.0.0.0 0.0.0.0 192.168.1.129.1
-ip route 0.0.0.0 0.0.0.0 192.168.1.130.2
+ip route 0.0.0.0 0.0.0.0 192.168.1.129 1
+ip route 0.0.0.0 0.0.0.0 192.168.1.130 2
 do sh ip route static
 A2:
 config t
@@ -45,8 +45,8 @@ int e1/0
  switchport access vlan 10
 A2: creating default route and secondary default route
 config t
-ip route 0.0.0.0 0.0.0.0 192.168.1.130.1
-ip route 0.0.0.0 0.0.0.0 192.168.1.129.2
+ip route 0.0.0.0 0.0.0.0 192.168.1.130 1
+ip route 0.0.0.0 0.0.0.0 192.168.1.129 2
 do sh ip route static
 p1:
 config t
@@ -55,8 +55,8 @@ int e0/0
  no shut
 P1: creating STATIC routes on p1 for vlan 200 and vlan 20:
 config t
-ip route 192.168.1.128 255.255.255.224 10.2.1.1
-ip route 192.168.1.130 255.255.255.255 10.2.1.2
+ip route 192.168.1.128 255.255.255.224 10.2.1 1
+ip route 192.168.1.130 255.255.255.255 10.2.1 2
 do sh ip route static
 p2:
 config t
@@ -65,8 +65,8 @@ int e1/0
  no shut
 P2: creating STATIC routes on p1 for vlan 200 and vlan 20:
 config t
-ip route 192.168.1.128 255.255.255.224 10.2.1.2
-ip route 192.168.1.129 255.255.255.255 10.2.1.1
+ip route 192.168.1.128 255.255.255.224 10.2.1 2
+ip route 192.168.1.129 255.255.255.255 10.2.1 1
 do sh ip route static
 Pano mag static Route sa PC:
 cmd
