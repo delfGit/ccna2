@@ -135,9 +135,9 @@ Master the 4 super Hereos of Switching
 Qpid: 802.1Q:trunking
 "make switch love each other!"LQ
 Darna: 802.1d: STP
-"slowly protect switches"
+"slowly protect switches with love/mercy"
 WonderWoman: 802.1w: rapidSTP
-"quickly,Brutally protect switches"
+"quickly,Brutally protect switches "
 SuperMan: 802.1s: MiSTP
 "Protect Many Switches at the same time!"
 
@@ -177,9 +177,9 @@ Blk - LIS - LRN -FWD
       15s   15s     = 30s
 
 Task9.2: STP Port Roles: 
-DesignatedPort/DP = fwd port of Root Bridge
-RootPort/RP = fwd port of non-root Bridge(1 only)
-AlternatePort/AP = blk port of nonRootPorts
+DesignatedPort/DP = fwd port of Root Bridge (ako ang boss)
+RootPort/RP = fwd port of non-root Bridge(1 only) (yes boss)
+AlternatePort/AP = blk port of nonRootPorts (mamatay ka, i'm next boss)
 BackupPort = yuck yuck
 
 how becomes RootPort = kanangKamay
@@ -216,10 +216,10 @@ end
 #sh int status err-disabled 
 TAAS: bounce/UP/down
 config t
-int fa 0/1
+int fa 0/3
  shut
  no shut
-int fa 0/5
+int fa 0/7
  shut
  no shut
 end
