@@ -337,9 +337,9 @@ Companies: 2 or 3 telcos:
 @TAAS/PLDTinternet:
 config t
 hostname PLDTITO
-Track 1 Int gi 0/1 line-protocol
+no Track 1 Int fa 0/12 line-protocol
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.22.1.6
 standby 1 preempt
 standby 1 Priority 150
 standby 1 Track 1 decrement 60
@@ -348,7 +348,7 @@ standby 1 Track 1 decrement 60
 config t
 hostname GLOBE
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.22.1.6
 standby 1 preempt
 standby 1 Priority 100
 do sh standby
@@ -420,7 +420,13 @@ int e0/3
  swi mode trunk
 
 D1 = root primary
+config t
+spanning-tree vlan 1-100 root primary
+do sh spanning-tree vlan 1
 d2 = root secondary
+config t
+spanning-tree vlan 1-100 root secondary
+do show spanning-tree vlan 1
 
 homelab: VTP:
 d1/d2:
@@ -439,7 +445,7 @@ vtp mode Client
 vtp version 2
 exit
 
-real world FHRP:
+real world FHRP: (first hop redundacy protocol: hrsp, vrrp, glbp)
 d1:
 config t
 Track 10 Int E1/1 line-protocol
